@@ -14,7 +14,7 @@ export function middleware(request: NextRequest) {
         /* request.url guarda a url q o usuario estava tentando acessar
         ou seja, apos a operacao, volta ele na msm pagina q ja estava, ao inves do inicio 
         + o HttpOnly impede q esse cookie fica visivel no front (so o back tem acesso) */
-        'Set-Cookie': `redirectTo=${request.url}; Path=/; HttpOnly; max-age=20`,
+        'Set-Cookie': `redirectTo=${'http://192.168.0.156:3000'}; Path=/; HttpOnly; max-age=20`,
       },
     })
   }

@@ -13,7 +13,7 @@ export async function GET(request: NextRequest) {
 
   const code = searchParams.get('code')
 
-  // const redirectTo = request.cookies.get('redirectTo')?.value
+  const redirectTo = request.cookies.get('redirectTo')?.value
 
   const registerResponse = await api.post('/register', {
     code,
@@ -26,8 +26,7 @@ export async function GET(request: NextRequest) {
     alguma pagina q precisa de login, portanto ele redireciona o cliente de volta p essa pagina.
     Se nao existir, manda o user pra pagina inicial que esta em request.url
   */
-  // const redirectURL = redirectTo ?? new URL('/', request.url)
-  const redirectURL = new URL('/', request.url)
+  const redirectURL = redirectTo ?? new URL('/', 'http://192.168.0.156:3000')
 
   const cookieExpiresInSeconds = 60 * 60 * 24 * 30
 
