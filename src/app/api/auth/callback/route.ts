@@ -34,8 +34,7 @@ export async function GET(request: NextRequest) {
   return NextResponse.redirect(redirectURL, {
     // o Path indica que o cookie vai estar disponivel em td a aplicacao
     headers: {
-      // 'Set-Cookie': `token=${token}; Path=/; max-age=${cookieExpiresInSeconds}`,
-      'Set-Cookie': 'token=token',
+      'Set-Cookie': `token=${token}; Path=/; max-age=${cookieExpiresInSeconds}`,
     },
   })
 }
